@@ -1,0 +1,49 @@
+{% extends 'base_layout.html' %}
+{% block content%}
+
+    <div class="issue_book">
+      <form class="site-form" action="{% url 'dash:staff_dash' %}" method="post">
+          {% csrf_token %}
+          {{ issueform }}
+          <button class="button" style="vertical-align:middle" input type="hidden" value="Issue"><span>Issue</span></button>
+
+      </form>
+    </div>
+
+    <div class="Issued">
+
+      <table id="t01">
+        <tr>
+          <th>IssueID</th>
+          <th>Username</th>
+          <th>ISBN</th>
+          <th>Issued_date</th>
+          <th>Return_date</th>
+          <th>RETURN</th>
+        </tr>
+        {% for issuedbook in issuedbooks %}
+
+          <div class="issuedbook">
+              <tr>
+                <td><b><a href="#">{{issuedbook.IssueID}}</a></b></td>
+                <td>{{issuedbook.userName}}</td>
+                <td>{{issuedbook.ISBN}}</td>
+                <td>{{issuedbook.Issued_date}}</td>
+                <td>{{issuedbook.Return_date}}</td>
+                <td>
+                  <form  action="{% url 'dash:staff_dash' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="RETURN">
+                    <input type="hidden" value="{{issuedbook.IssueID}}" name="id">
+                  </form>
+                </td>
+              </tr>
+          </div>
+
+    {% endfor %}
+    </table>
+    </div>
+
+
+
+{% endblock %}
