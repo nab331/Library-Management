@@ -1,0 +1,43 @@
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color:  #1a2033;
+  border: none;
+  color: #616984;
+  text-align: center;
+  padding: 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button:hover{
+    box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.2);
+}

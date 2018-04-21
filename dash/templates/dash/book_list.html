@@ -1,0 +1,29 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+    <h1>Book List</h1>
+
+
+    {% if all_book %}
+       <table>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Publisher</th>
+              </tr>
+           {% for book in all_book %}
+              <tr>
+                <td><a href="">{{book.title}}</a></td>
+                <td>{{book.author}}</td>
+                <td>{{book.category}}</td>
+                <td>{{book.publisher}}</td>
+              </tr>
+           {% endfor %}
+
+        </table>
+
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %}       
+{% endblock %}

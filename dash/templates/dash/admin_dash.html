@@ -1,0 +1,42 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+
+    <div class="signup-admin">
+      <form class="site-form" action="{% url 'dash:admin_dash' %}" method="post">
+          {% csrf_token %}
+          {{ form }}
+          {{userform}}
+        </br>
+        </br>
+          <button class="button" style="vertical-align:middle" input type="hidden" value="Signup"><span>SIGN UP</span></button>
+          <span class="helptext"></span>
+      </form>
+
+    </div>
+
+
+
+
+    <div class="userList">
+
+      <table id="t01">
+        <tr>
+          <th>UserName</th>
+          <th>Type</th>
+          <th>Date Created</th>
+        </tr>
+        {% for user in Users %}
+
+          <div class="user">
+              <tr>
+                <td><b><a href="#">{{user.userName}}</a></b></td>
+                <td>{{user.userType}}</td>
+                <td>{{user.date}}</td>
+              </tr>
+          </div>
+
+    {% endfor %}
+    </table>
+    </div>
+{% endblock %}

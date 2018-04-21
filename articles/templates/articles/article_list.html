@@ -1,0 +1,26 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+    <h1>Articles List</h1>
+    <div class="articles">
+      
+      <table id="t01">
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Age</th>
+        </tr>
+        {% for article in articles %}
+
+          <div class="article">
+              <tr>
+                <td><b><a href="{% url 'articles:detail' slug=article.slug %}">{{article.title}}</a></b></td>
+                <td>{{article.snippet}}</td>
+                <td>{{article.date}}</td>
+              </tr>
+          </div>
+
+    {% endfor %}
+    </table>
+    </div>
+{% endblock %}
