@@ -19,5 +19,9 @@ urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
+<<<<<<< HEAD
 
 #HELLO
+=======
+#TEST
+>>>>>>> 5e1b1f8b0b2a43402f484feb4e4b7b50786c15bd
