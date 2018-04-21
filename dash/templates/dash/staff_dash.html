@@ -5,8 +5,9 @@
       <form class="site-form" action="{% url 'dash:staff_dash' %}" method="post">
           {% csrf_token %}
           {{ issueform }}
-          <button class="button" style="vertical-align:middle" input type="hidden" value="Issue"><span>Issue</span></button>
-
+        </br></br>
+          <button class="button" style="vertical-align:middle" input type="hidden" value="Issue"><span>ISSUE</span></button>
+        </br>
       </form>
     </div>
 
@@ -40,10 +41,35 @@
               </tr>
           </div>
 
+
+
     {% endfor %}
     </table>
     </div>
 
+    <div class="add-books">
+      <form class="site-form" action="{% url 'dash:staff_dash' %}" method="post">
+          {% csrf_token %}
+          {{bookform}}
+        </br>
+        </br>
+          <button class="button" style="vertical-align:middle" input type="hidden" value="ADDBOOK"><span>ADD BOOK</span></button>
+
+      </form>
+    </div>
+
+    <!-- <form class="site-form" action="{% url 'dash:staff_dash' %}" method="post">
+      {% csrf_token %}
+      <button class="button" style="vertical-align:middle"><span>VIEW BOOKS</span></button>
+      <input type="hidden" value"VIEW" name"id2">
+    </form> -->
+    <div class="add-books">
+    <form  action="{% url 'dash:staff_dash' %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="VIEW BOOKS">
+      <input type="hidden" value="WORKS" name="id2">
+    </form>
+    </div>
 
 
 {% endblock %}

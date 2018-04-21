@@ -38,6 +38,7 @@ class book(models.Model):
     author=models.CharField(max_length=200)
     publisher=models.CharField(max_length=200)
     category=models.CharField(max_length=200)
+    bookcount=models.IntegerField(default=1)
 
     def __str__(self):
 
@@ -67,3 +68,4 @@ class bookInstance(models.Model):
         String for representing the Model object
         """
         return '{0} ({1})'.format(self.id, self.Book.title)
+

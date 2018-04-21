@@ -88,10 +88,7 @@ td {
 
 .site-form{
   text-align: center;
-
   margin-bottom : 1%;
-
-  /*margin: 10%;*/
 }
 
 .site-form textarea{
@@ -111,7 +108,13 @@ input{
   margin: 3px;
 }
 
-.site-form input,textarea{
-  /*display: grid;*/
-  /*grid-template-columns: 1fr 1fr;*/
+
+
+.add-books{
+
+  text-align: center;
+  padding-top: 3%;
+  padding-left: 5%;
+  padding-right: 5%;
+
 }

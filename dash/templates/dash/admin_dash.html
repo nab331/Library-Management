@@ -25,6 +25,7 @@
           <th>UserName</th>
           <th>Type</th>
           <th>Date Created</th>
+          <th>RETURN</th>
         </tr>
         {% for user in Users %}
 
@@ -33,6 +34,13 @@
                 <td><b><a href="#">{{user.userName}}</a></b></td>
                 <td>{{user.userType}}</td>
                 <td>{{user.date}}</td>
+                <td>
+                  <form  action="{% url 'dash:admin_dash' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="DELETE">
+                    <input type="hidden" value="{{user.userName}}" name="id">
+                  </form>
+                </td>
               </tr>
           </div>
 

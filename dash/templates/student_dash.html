@@ -1,0 +1,88 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+  {% block title %}<title>Local Library</title>{% endblock %}
+  <!--<meta charset="utf-8">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+  <!-- Add additional CSS in static file -->
+  <!--{% load static %}-->
+  <!--<link rel="stylesheet" href="{% static 'styles_student.css' %}">-->
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-2">
+      <!--{% block sidebar %}-->
+      <ul class="sidebar-nav">
+          <li><a href="{% url 'dash:student_dash' %}">Home</a></li>
+          <li><a href="{% url 'dash:Books' %}">Books</a></li>
+          <li><a href="{% url 'dash:Users' %}">Users</a></li>
+      </ul>
+     <!--{% endblock %}-->
+      </div>
+      <div class="col-sm-10 ">
+      {% block content2 %}
+
+          <h1>Issued Books</h1>
+          <div>
+              <form method="GET" action="">
+                <input type="text" name="q" placeholder="Enter ISBN "/>
+                <input type="submit" value="Search"/>
+              </form>
+          </div>
+
+        <div>
+            {% if query_list%}
+                <table>
+                  <tr>
+                    <th>Issue ID</th>
+                    <th>ISBN</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                  </tr>
+               {% for issue in query_list %}
+                  <tr>
+                    <td><a href="">{{issue.IssueID}}</a></td>
+                    <td>{{issue.ISBN}}</td>
+                    <td>{{issue.Issued_date}}</td>
+                    <td>{{issue.Return_date}}</td>
+                  </tr>
+               {% endfor %}
+
+                </table>
+
+            {% elif issued %}
+
+            <table>
+                  <tr>
+                    <th>Issue ID</th>
+                    <th>ISBN</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                  </tr>
+               {% for issue in issued %}
+                  <tr>
+                    <td><a href="">{{issue.IssueID}}</a></td>
+                    <td>{{issue.ISBN}}</td>
+                    <td>{{issue.Issued_date}}</td>
+                    <td>{{issue.Return_date}}</td>
+                  </tr>
+               {% endfor %}
+
+            </table>
+
+            {% else %}
+                <p>No issued books found.</p>
+            {% endif %}
+        </div>
+
+          {% endblock %}
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

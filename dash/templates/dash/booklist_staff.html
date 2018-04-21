@@ -1,0 +1,29 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+    <h1>Book List</h1>
+
+
+       <table>
+              <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Publisher</th>
+                  <th>Book Count</th>
+              </tr>
+           {% for book in all_book %}
+              <tr>
+                <td><a href="">{{book.title}}</a></td>
+                  <td>{{book.ISBN}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.category}}</td>
+                <td>{{book.publisher}}</td>
+                  <td>{{book.bookcount}}</td>
+              </tr>
+           {% endfor %}
+
+        </table>
+
+{% endblock %}

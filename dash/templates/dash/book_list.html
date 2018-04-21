@@ -1,13 +1,39 @@
-{% extends "base_layout.html" %}
+{% extends "student_dash.html" %}
 
-{% block content %}
+{% block content2 %}
     <h1>Book List</h1>
+    <div>
+        <form method="GET" action="">
+            <input type="text" name="q" placeholder="Enter ISBN or title or author"/>
+            <input type="submit" value="Search"/>
+        </form>
+    </div>
+    {%if query_list%}
+        <table>
+              <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Publisher</th>
+              </tr>
+           {% for book in query_list %}
+              <tr>
+                <td><a href="">{{book.title}}</a></td>
+                <td>{{book.ISBN}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.category}}</td>
+                <td>{{book.publisher}}</td>
+              </tr>
+           {% endfor %}
 
+        </table>
 
-    {% if all_book %}
+    {% elif all_book %}
        <table>
               <tr>
                 <th>Title</th>
+                <th>ISBN</th>
                 <th>Author</th>
                 <th>Category</th>
                 <th>Publisher</th>
@@ -15,6 +41,7 @@
            {% for book in all_book %}
               <tr>
                 <td><a href="">{{book.title}}</a></td>
+                  <td>{{book.ISBN}}</td>
                 <td>{{book.author}}</td>
                 <td>{{book.category}}</td>
                 <td>{{book.publisher}}</td>
@@ -24,6 +51,6 @@
         </table>
 
     {% else %}
-      <p>There are no books in the library.</p>
+      <p>No books found.</p>
     {% endif %}       
 {% endblock %}

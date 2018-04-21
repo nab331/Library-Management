@@ -1,0 +1,41 @@
+{% extends "student_dash.html" %}
+
+{% block content2 %}
+    <h1>Users List</h1>
+
+              <form method="GET" action="">
+                <input type="text" name="q" placeholder="Enter Username"/>
+                <input type="submit" value="Search"/>
+              </form>
+        </div>
+
+    {% if query_list%}
+        <table>
+              <tr>
+                <th>Username</th>
+              </tr>
+           {% for user in query_list %}
+              <tr>
+                <td><a href="">{{user.userName}}</a></td>
+              </tr>
+           {% endfor %}
+
+        </table>
+
+    {% elif users %}
+       <table>
+              <tr>
+                <th>Username</th>
+              </tr>
+           {% for user in users %}
+              <tr>
+                <td><a href="">{{user.userName}}</a></td>
+              </tr>
+           {% endfor %}
+
+        </table>
+
+    {% else %}
+      <p>No users found.</p>
+    {% endif %}       
+{% endblock %}
